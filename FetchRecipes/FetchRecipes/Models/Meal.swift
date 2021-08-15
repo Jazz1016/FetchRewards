@@ -7,10 +7,14 @@
 
 import Foundation
 
+struct TopLevelMeals: Codable {
+    let meals: [Meal]
+}
+
 struct Meal: Codable {
-    let strMeal: String
-    let strMealThumb: String
-    let idMeal: String
+    let strMeal: String?
+    let strMealThumb: String?
+    let idMeal: String?
     let strCategory: String?
     let strInstructions: String?
     let strYoutube: String?
