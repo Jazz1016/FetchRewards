@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D38498A26CAC6F5001877F9 /* GlobalFns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D38498926CAC6F5001877F9 /* GlobalFns.swift */; };
 		0D9900C026C9A4A5007B736F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9900BF26C9A4A5007B736F /* AppDelegate.swift */; };
 		0D9900C226C9A4A5007B736F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9900C126C9A4A5007B736F /* SceneDelegate.swift */; };
 		0D9900C726C9A4A5007B736F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9900C526C9A4A5007B736F /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D38498926CAC6F5001877F9 /* GlobalFns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFns.swift; sourceTree = "<group>"; };
 		0D9900BC26C9A4A5007B736F /* FetchRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9900BF26C9A4A5007B736F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D9900C126C9A4A5007B736F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				0D9900F726C9C29B007B736F /* CategoryError.swift */,
 				0D9900F926C9C2AA007B736F /* MealError.swift */,
+				0D38498926CAC6F5001877F9 /* GlobalFns.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9900C026C9A4A5007B736F /* AppDelegate.swift in Sources */,
+				0D38498A26CAC6F5001877F9 /* GlobalFns.swift in Sources */,
 				0D9900FA26C9C2AA007B736F /* MealError.swift in Sources */,
 				0D9900E426C9ACDE007B736F /* MealTableViewCell.swift in Sources */,
 				0D9900F326C9C032007B736F /* MealController.swift in Sources */,

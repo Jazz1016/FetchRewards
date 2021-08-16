@@ -14,10 +14,9 @@ class CategoriesViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        fetchCategories()
-//        fetchMeals()
-        fetchMeal()
+        CategoriesTableView.delegate = self
+        CategoriesTableView.dataSource = self
+        fetchCategories()
     }
     
     // MARK: - Actions
@@ -25,41 +24,18 @@ class CategoriesViewController: UIViewController {
     
     // MARK: - FNs
     func fetchCategories(){
-        CategoryController.shared.fetchCategories { result in
-            switch result {
-            case .success(let categories):
-                print(categories)
-                CategoryController.shared.categories = categories
-                
-            case .failure(let error):
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+        CategoriesViewModel.fetchCategories { result in
+            if result {
+                DispatchQueue.main.async {
+                    self.CategoriesTableView.reloadData()
+                }
             }
         }
     }
     
-    func fetchMeals(){
-        MealController.shared.fetchMeals(categoryStr: "Chicken") { result in
-            switch result {
-            case .success(let meals):
-                print(meals)
-            case .failure(let error):
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-            }
-        }
+    func fetchMeals(categoryStr: String){
+        CategoriesViewModel.fetchMeals(categoryStr: categoryStr)
     }
-    
-    func fetchMeal(){
-        MealController.shared.fetchDetailedMeal(mealId: "52874") { result in
-            switch result {
-            case .success(let meal):
-                print(meal)
-            case .failure(let error):
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-            }
-        }
-    }
-    
-    
     
 }//End of class
 
@@ -69,11 +45,22 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoriesTableViewCell
         
+        let category = CategoryController.shared.categories[indexPath.row]
         
+        cell?.category = category
         
-        return cell
+        return cell ?? UITableViewCell()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMealsVC" {
+            guard let destination = segue.destination as? MealsTableViewController,
+                  let indexPath = CategoriesTableView.indexPathForSelectedRow else {return}
+            let categoryName = CategoryController.shared.categories[indexPath.row].name
+            fetchMeals(categoryStr: categoryName)
+        }
     }
     
     
