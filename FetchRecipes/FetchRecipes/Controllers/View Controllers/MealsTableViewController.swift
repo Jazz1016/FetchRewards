@@ -16,27 +16,35 @@ class MealsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return MealController.shared.meals.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as? MealTableViewCell
         
+        let meal = MealController.shared.meals[indexPath.row]
         
-        return cell
+        cell?.meal = meal
+        
+        return cell ?? UITableViewCell()
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toMealDetailVC" {
+            guard let destination = segue.destination as? MealDetailViewController,
+                  let indexPath = self.tableView.indexPathForSelectedRow else {return}
+            
+            let meal = MealController.shared.meals[indexPath.row]
+            
+            destination.meal = meal
+        }
     }
-    */
+    
 
 }//End of class

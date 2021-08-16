@@ -25,6 +25,4 @@ class CategoriesTableViewCell: UITableViewCell {
         categoryLabel.text = category.name
     }
     
-    
-    
 }//End of class

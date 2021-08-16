@@ -123,7 +123,7 @@
                                 <connections>
                                     <outlet property="mealImageView" destination="yC3-2g-l86" id="D5b-3J-447"/>
                                     <outlet property="mealLabel" destination="EkF-CI-fcD" id="9IV-mz-VRv"/>
-                                    <segue destination="3zk-9N-JMK" kind="show" id="NI4-ph-lOo"/>
+                                    <segue destination="3zk-9N-JMK" kind="show" identifier="toMealDetailVC" id="NI4-ph-lOo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

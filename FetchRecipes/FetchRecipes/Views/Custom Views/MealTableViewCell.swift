@@ -24,5 +24,4 @@ class MealTableViewCell: UITableViewCell {
         mealLabel.text = meal.strMeal
     }
     
-    
 }//End of class

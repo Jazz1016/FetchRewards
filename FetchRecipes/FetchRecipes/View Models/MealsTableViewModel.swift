@@ -8,13 +8,14 @@
 import Foundation
 
 class MealsTableViewModel {
-    static func fetchMeal(){
-        MealController.shared.fetchDetailedMeal(mealId: "53050") { result in
+    static func fetchMeal(mealId: String, completion: @escaping (Result<Meal, MealError>) -> Void){
+        MealController.shared.fetchDetailedMeal(mealId: mealId) { result in
             switch result {
             case .success(let meal):
-                print(meal)
+                completion(.success(meal))
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(.failure(.thrownError(error)))
             }
         }
     }
