@@ -1,8 +1,8 @@
 //
 //  MealDetailViewController.swift
-//  FetchRecipes
+//  FetchRecipesWTesting
 //
-//  Created by James Lea on 8/15/21.
+//  Created by James Lea on 8/26/21.
 //
 
 import UIKit
@@ -44,5 +44,6 @@ class MealDetailViewController: UIViewController {
         guard let meal = meal else {return}
         GlobalFns.displayPicture(url: meal.strMealThumb, UIImageView: self.mealThumbnailImageView)
     }
-
+    
 }//End of class
+
