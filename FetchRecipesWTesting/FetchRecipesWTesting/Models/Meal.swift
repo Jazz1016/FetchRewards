@@ -2,7 +2,7 @@
 //  Meal.swift
 //  FetchRecipesWTesting
 //
-//  Created by James Lea on 8/26/21.
+//  Created by James Lea on 8/27/21.
 //
 
 import Foundation
@@ -59,3 +59,4 @@ struct Meal: Codable {
     let strMeasure19: String?
     let strMeasure20: String?
 }
+

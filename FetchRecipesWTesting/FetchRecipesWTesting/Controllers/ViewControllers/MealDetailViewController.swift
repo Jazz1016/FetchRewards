@@ -2,7 +2,7 @@
 //  MealDetailViewController.swift
 //  FetchRecipesWTesting
 //
-//  Created by James Lea on 8/26/21.
+//  Created by James Lea on 8/27/21.
 //
 
 import UIKit
@@ -46,4 +46,3 @@ class MealDetailViewController: UIViewController {
     }
     
 }//End of class
-

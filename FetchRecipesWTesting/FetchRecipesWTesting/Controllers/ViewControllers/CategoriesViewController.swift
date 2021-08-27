@@ -2,7 +2,7 @@
 //  CategoriesViewController.swift
 //  FetchRecipesWTesting
 //
-//  Created by James Lea on 8/26/21.
+//  Created by James Lea on 8/27/21.
 //
 
 import UIKit
@@ -19,11 +19,8 @@ class CategoriesViewController: UIViewController {
         fetchCategories()
     }
     
-    // MARK: - Actions
-    
-    
     // MARK: - FNs
-    func fetchCategories(){
+    func fetchCategories() {
         CategoriesViewModel.fetchCategories { result in
             if result {
                 DispatchQueue.main.async {
@@ -33,7 +30,7 @@ class CategoriesViewController: UIViewController {
         }
     }
     
-    func fetchMeals(categoryStr: String){
+    func fetchMeals(categoryStr: String) {
         CategoriesViewModel.fetchMeals(categoryStr: categoryStr)
     }
     
@@ -65,3 +62,4 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     
 }//End of extension
+
